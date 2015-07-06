@@ -19,6 +19,7 @@ there are some angles that we can work into it. First the sliding pizza is overp
 
 1. reduce the number of sliding pizzas.
 1. fixed FSL bug on updatePositions()
+1. simplified resizePizzas(), and fixed FSL bug on it
 
 
 ### Getting started
