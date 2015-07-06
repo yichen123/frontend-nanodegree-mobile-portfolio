@@ -12,6 +12,14 @@ To get started, check out the repository, inspect the code,
 1. inline style.css into index.html
 1. async web font loading by using javascript
 
+the final score is 91 for mobile, which is good!
+
+### for part2:
+there are some angles that we can work into it. First the sliding pizza is overproduced, and only the pizzas that appearing on screen should be printed. FSL bug is another problem that we can work on. Also the pizza container generator can be move into a web worker.
+
+1. reduce the number of sliding pizzas.
+
+
 ### Getting started
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
