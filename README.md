@@ -5,8 +5,10 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 To get started, check out the repository, inspect the code,
 
 ## Things have been optimized:
+### for part1:
 1. compressed pictures
 1. async the js files to aviod render blocking by javascript
+1. add media query to print.css
 
 ### Getting started
 
