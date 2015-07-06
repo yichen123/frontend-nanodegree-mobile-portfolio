@@ -10,6 +10,7 @@ To get started, check out the repository, inspect the code,
 1. async the js files to aviod render blocking by javascript
 1. add media query to print.css
 1. inline style.css into index.html
+1. async web font loading by using javascript
 
 ### Getting started
 
