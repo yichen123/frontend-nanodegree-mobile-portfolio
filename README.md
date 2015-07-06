@@ -18,6 +18,7 @@ the final score is 91 for mobile, which is good!
 there are some angles that we can work into it. First the sliding pizza is overproduced, and only the pizzas that appearing on screen should be printed. FSL bug is another problem that we can work on. Also the pizza container generator can be move into a web worker.
 
 1. reduce the number of sliding pizzas.
+1. fixed FSL bug on updatePositions()
 
 
 ### Getting started
