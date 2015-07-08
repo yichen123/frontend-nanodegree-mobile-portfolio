@@ -16,10 +16,11 @@ the final score is 91 for mobile, which is good!
 
 ### for part2:
 there are some angles that we can work into it. First the sliding pizza is overproduced, and only the pizzas that appearing on screen should be printed. FSL bug is another problem that we can work on.
+for the resizing part, maybe i can produce all three sizes at loading stage, and use transform to present the desired version. hope this can increase the fps.
 
 1. reduce the number of sliding pizzas.
 1. fixed FSL bug on updatePositions()
-1. simplified resizePizzas(), and fixed FSL bug on it
+1. simplified resizePizzas(), and fixed FSL bug on it, but fps still very low
 
 
 ### Getting started
