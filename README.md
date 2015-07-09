@@ -22,6 +22,7 @@ there are some angles that we can work into it. First the sliding pizza is overp
 1. simplified resizePizzas(), and fixed FSL bug on it
 1. replace querySelector with getElementBy***, because the latter is faster
 
+
 although I have fixed FSL bug for changing the size of pizzas, my fps is still lower than 60. I noticed most works were due to the layout and paint, and it could be sovled with transform. So I tried couple of approaches, but none of them worked.
 for example, I tried create three different menus for different sizes, present the desired one and move the other two off the screen using transform. But I could not put three different menus at the correct locations.
 Or I try to zoom the size of pictures or the size of pizza container with transform.scale(), and it did not work out neither.
