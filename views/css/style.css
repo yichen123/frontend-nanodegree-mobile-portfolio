@@ -36,7 +36,7 @@ form {
 }
 
 #randomPizzasSmall {
-  position: absolute; left: -100%; top: 100px;
+  position: absolute; left: -100%;
 }
 .randomPizzaContainer {
   float: left;
@@ -49,6 +49,9 @@ form {
   clear:both;
 }
 
+.row-nonflow {
+  width: 300%;
+}
  .container {
   background-color: rgba(240, 60, 60, 0.8);
 }
