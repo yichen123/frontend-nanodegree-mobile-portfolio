@@ -379,8 +379,22 @@ var makeRandomPizza = function() {
     return pizza;
 };
 
+// Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+function sizeSelecter(size) {
+    switch (size) {
+        case "1":
+            return "187px";
+        case "2":
+            return "250px";
+        case "3":
+            return "375px";
+        default:
+            console.log("bug in sizeSwitcher");
+    }
+}
+
 // returns a DOM element for each pizza
-var pizzaElementGenerator = function(i) {
+var pizzaElementGenerator = function(i, name, ingredients, size) {
     var pizzaContainer, // contains pizza title, image and list of ingredients
         pizzaImageContainer, // contains the pizza image
         pizzaImage, // the pizza image itself
@@ -394,7 +408,7 @@ var pizzaElementGenerator = function(i) {
     pizzaDescriptionContainer = document.createElement("div");
 
     pizzaContainer.classList.add("randomPizzaContainer");
-    pizzaContainer.style.width = "33.33%";
+    pizzaContainer.style.width = sizeSelecter(size);
     pizzaContainer.style.height = "325px";
     pizzaContainer.id = "pizza" + i; // gives each pizza element a unique id
     pizzaImageContainer.classList.add("col-md-6");
@@ -408,11 +422,11 @@ var pizzaElementGenerator = function(i) {
     pizzaDescriptionContainer.classList.add("col-md-6");
 
     pizzaName = document.createElement("h4");
-    pizzaName.innerHTML = randomName();
+    pizzaName.innerHTML = name;
     pizzaDescriptionContainer.appendChild(pizzaName);
 
     ul = document.createElement("ul");
-    ul.innerHTML = makeRandomPizza();
+    ul.innerHTML = ingredients;
     pizzaDescriptionContainer.appendChild(ul);
     pizzaContainer.appendChild(pizzaDescriptionContainer);
 
@@ -439,34 +453,7 @@ var resizePizzas = function(size) {
                 console.log("bug in changeSliderLabel");
         }
     }
-
     changeSliderLabel(size);
-
-    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-    function sizeSelecter(size) {
-        switch (size) {
-            case "1":
-                return 187;
-            case "2":
-                return 250;
-            case "3":
-                return 375;
-            default:
-                console.log("bug in sizeSwitcher");
-        }
-    }
-
-    // Iterates through pizza elements on the page and changes their widths
-    function changePizzaSizes(size) {
-        var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
-        var dx = sizeSelecter(size);
-        for (var i = 0; i < randomPizzas.length; i++) {
-            var newwidth = dx + 'px';
-            randomPizzas[i].style.width = newwidth;
-        }
-    }
-
-    changePizzaSizes(size);
 
     // User Timing API is awesome
     window.performance.mark("mark_end_resize");
@@ -477,10 +464,17 @@ var resizePizzas = function(size) {
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
+
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
+var pizzasSmallDiv = document.getElementById("randomPizzasSmall");
+var pizzasLargeDiv = document.getElementById("randomPizzasLarge");
 for (var i = 2; i < 100; i++) {
-    var pizzasDiv = document.getElementById("randomPizzas");
-    pizzasDiv.appendChild(pizzaElementGenerator(i));
+    var name = randomName();
+    var ingredients = makeRandomPizza();
+    pizzasDiv.appendChild(pizzaElementGenerator(i, name, ingredients, "2"));
+    pizzasSmallDiv.appendChild(pizzaElementGenerator(i, name, ingredients, "1"));
+    pizzasLargeDiv.appendChild(pizzaElementGenerator(i, name, ingredients, "3"));
 }
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
