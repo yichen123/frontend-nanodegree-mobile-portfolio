@@ -534,6 +534,7 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
     var screenWidth = document.body.clientWidth;
+    var movingPizzas = document.getElementById("movingPizzas1");
     var screenHeight = window.screen.availHeight;
     var s = 256;
     var cols = Math.ceil(screenWidth / s) + 1;
@@ -546,7 +547,8 @@ document.addEventListener('DOMContentLoaded', function() {
         elem.basicLeft = (i % cols) * s;
         var elemTop = (Math.floor(i / cols) * s);
         elem.style.top = elemTop + 'px';
-        document.getElementById("movingPizzas1").appendChild(elem);
+        movingPizzas.appendChild(elem);
+        // loop will stop when new moving pizzas below the screen
         if (elemTop > screenHeight) {
             break;
         }
