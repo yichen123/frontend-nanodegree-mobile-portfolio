@@ -517,8 +517,6 @@ function updatePositions() {
         var phase = Math.sin(scrollPosition / 1250 + (i % 5));
         var shift = items[i].basicLeft + 100 * phase + 'px'
         items[i].style.webkitTransform = "translate(" + shift + ", 0)";
-        console.log();
-
     }
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
